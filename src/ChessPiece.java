@@ -23,18 +23,16 @@ public abstract class ChessPiece {
     protected boolean canMoveToPositionOnAStraightLine(ChessBoard chessBoard, int line, int column,
                                                     int toLine, int toColumn, int lineDiff, int colDiff) {
 
-        if(lineDiff > 0 && colDiff == 0) //moves vertically
-        {
-            for (int i = Math.min(line, toLine) + 1; i < Math.max(line, toLine); i++)
-            {
+        if(lineDiff > 0 && colDiff == 0) {
+            //moves vertically
+            for (int i = Math.min(line, toLine) + 1; i < Math.max(line, toLine); i++) {
                 if (chessBoard.board[i][column] != null) return false;
             }
             return  true;
         }
-        else if(lineDiff == 0 && colDiff > 0) //moves horizontally
-        {
-            for (int i = Math.min(column, toColumn) + 1; i < Math.max(column, toColumn); i++)
-            {
+        else if(lineDiff == 0 && colDiff > 0) {
+            //moves horizontally
+            for (int i = Math.min(column, toColumn) + 1; i < Math.max(column, toColumn); i++) {
                 if (chessBoard.board[line][i] != null) return false;
             }
             return true;
@@ -48,8 +46,7 @@ public abstract class ChessPiece {
             if (lineDiff == colDiff){
             if (toLine - line == toColumn - column) {
                 var j = Math.min(column, toColumn)+ 1;
-                for(int i = Math.min(line, toLine) + 1; i < Math.max(line, toLine); i++)
-                {
+                for(int i = Math.min(line, toLine) + 1; i < Math.max(line, toLine); i++) {
                     if (chessBoard.board[i][j] != null) return false;
                     j++;
                 }
@@ -57,8 +54,7 @@ public abstract class ChessPiece {
             }
             else{
                 var j = Math.max(column, toColumn) - 1;
-                for(int i = Math.min(line, toLine) + 1; i < Math.max(line, toLine); i++)
-                {
+                for(int i = Math.min(line, toLine) + 1; i < Math.max(line, toLine); i++) {
                     if (chessBoard.board[i][j] != null) return false;
                     j--;
                 }

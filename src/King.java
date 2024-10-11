@@ -19,10 +19,8 @@ public class King extends ChessPiece{
     }
 
     public boolean isUnderAttack(ChessBoard board, int line, int column){
-        for(int i = 0; i < 8; i ++)
-        {
-            for(int j = 0; j < 8; j ++)
-            {
+        for(int i = 0; i < 8; i ++) {
+            for(int j = 0; j < 8; j ++) {
                 var piece = board.board[i][j];
                 if (piece != null && !piece.getColor().equals(color)
                         && piece.canMoveToPosition(board, i, j, line, column)) return true;
